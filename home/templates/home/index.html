@@ -1,0 +1,42 @@
+{% if latest_patient_list %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">mobile</th>
+        <th scope="col">issue</th>
+        <th scope="col">Date of Birth</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for patient in latest_patient_list %}
+    <tr>
+        <th scope="row">{{patient.id}}</th>
+        <td>{{patient.Name}}</td>
+        <td>{{patient.Address}}</td>
+        <td>{{patient.mobile}}</td>
+        <td>{{patient.issue}}</td>
+        {%if patient.dob%}<td>patient.dob</td>{%else%}<td >--------</td>{%endif%}
+    </tr>
+
+    <!--            <a href="/polls/{{ question.id }}/">{{ patient.Name }}</a></li>-->
+    {% endfor %}
+
+    </tbody>
+</table>
+</body>
+
+</html>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
