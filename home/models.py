@@ -9,7 +9,7 @@ class Patient(models.Model):
 		return self.Name
 
 	Name = models.CharField(max_length=100)
-	dob = models.DateField('date of birth', default=dateparse.parse_date('01/01/01'), null=True)
+	dob = models.DateField('date of birth', default=dateparse.parse_date('01-01-01'), null=True)
 	Address = models.CharField(max_length=200)
 	mobile = models.CharField(max_length=10)
 	issue = models.CharField(max_length=1000)
