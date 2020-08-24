@@ -6,11 +6,10 @@ from django.utils import dateparse
 
 class Patient(models.Model):
 	def __str__(self):
-		return self.Name
+		return self.name
 
-	Name = models.CharField(max_length=100)
-	dob = models.DateField('date of birth', default=dateparse.parse_date('01-01-01'), null=True)
-	Address = models.CharField(max_length=200)
-	mobile = models.CharField(max_length=10)
-	issue = models.CharField(max_length=1000)
-	profile_image = models.ImageField(null=True)
+	id = models.AutoField(primary_key=True)  # System generated Unique ID
+	name = models.CharField(max_length=256, null=True)
+	age = models.IntegerField(null=True)
+	sex = models.CharField(max_length=9, choices=[(1, 'Male'), (2, 'Female')], null=True)
+	email = models.CharField(max_length=1024, null=True)

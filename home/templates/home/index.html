@@ -11,24 +11,21 @@
     <thead>
     <tr>
         <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Address</th>
-        <th scope="col">mobile</th>
-        <th scope="col">issue</th>
-        <th scope="col">Date of Birth</th>
+        <th scope="col">name</th>
+        <th scope="col">age</th>
+        <th scope="col">sex</th>
+        <th scope="col">email</th>
     </tr>
     </thead>
     <tbody>
     {% for patient in latest_patient_list %}
     <tr>
         <th scope="row">{{patient.id}}</th>
-        <td>{{patient.Name}}</td>
-        <td>{{patient.Address}}</td>
-        <td>{{patient.mobile}}</td>
-        <td>{{patient.issue}}</td>
-        {%if patient.dob%}<td>{{patient.dob}}</td>{%else%}<td >--------</td>{%endif%}
+        <td>{{patient.name}}</td>
+        <td>{{patient.age}}</td>
+        <td>{% if patient.sex == '1' %}Male{% else %}Female{% endif %}</td>
+        <td>{{patient.email}}</td>
     </tr>
-
     <!--            <a href="/polls/{{ question.id }}/">{{ patient.Name }}</a></li>-->
     {% endfor %}
 
